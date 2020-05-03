@@ -1,11 +1,13 @@
 <template>
   <v-navigation-drawer
+    class="transparent"
     floating
     permanent
-    fixed
-    class="background">
-    <v-list class="d-flex flex-column justify-center" height="100%">
-      <v-list-item class="primary--btn"
+    fixed>
+    <v-list
+      class="d-flex flex-column justify-center"
+      height="100%">
+      <v-list-item
         v-for="item in items"
         :key="item.title"
         link>
