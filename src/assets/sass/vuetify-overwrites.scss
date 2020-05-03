@@ -1,0 +1,43 @@
+$primary: #B39DDB;
+$secondary: #9575CD;
+$background: #000000;
+
+// Fonts
+$body-font-family: 'Comfortaa', cursive;
+$title-font: 'Comfortaa', cursive;
+.v-application {
+  font-family: $body-font-family, sans-serif !important;
+   .title {
+      font-family: $title-font, sans-serif !important;
+   }
+}
+
+// Dark theme
+.theme--dark.v-application {
+  background: $background !important;
+}
+
+// AppNavigation
+.v-list-item--link {
+  height: 75px;
+  max-height: 75px;
+  max-width: 200px;
+  text-transform: capitalize;
+  border-bottom: 1px solid $primary;
+  &:first-child {
+    border-top: 1px solid $primary;
+  }
+  &:before,
+  &:after {
+    content: none !important;
+  }
+  &:hover .primary--text,
+  &:active .primary--text {
+    color: $secondary !important;
+  }
+  .v-list-item__icon {
+    margin: 0 !important;
+    padding: 24px 16px;
+  }
+}
+

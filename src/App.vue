@@ -1,26 +1,26 @@
-<!-- App.vue -->
-
-<v-app>
-  <v-navigation-drawer app>
-    <!-- -->
-  </v-navigation-drawer>
-
-  <v-app-bar app>
-    <!-- -->
-  </v-app-bar>
-
-  <!-- Sizes your content based upon application components -->
-  <v-content>
-
-    <!-- Provides the application the proper gutter -->
-    <v-container fluid>
-
-      <!-- If using vue-router -->
+<template>
+  <v-app>
+    <app-navigation></app-navigation>
+    <main>
       <router-view></router-view>
-    </v-container>
-  </v-content>
+    </main>
+  </v-app>
+</template>
 
-  <v-footer app>
-    <!-- -->
-  </v-footer>
-</v-app>
+<script>
+import AppNavigation from '@/components/Shared/AppNavigation.vue'
+
+export default {
+  components: {
+    AppNavigation
+  }
+}
+</script>
+
+<style lang="sass">
+  // TODO: Check what that means:
+  $color-pack: false
+
+  @import '~vuetify/src/styles/main.sass'
+  @import './assets/sass/vuetify-overwrites.scss'
+</style>

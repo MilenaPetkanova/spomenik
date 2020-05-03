@@ -2,7 +2,6 @@ import Vue from 'vue'
 import router from './router'
 import store from './store'
 import vuetify from './plugins/vuetify'
-import './assets/sass/main.scss'
 
 import App from './App.vue'
 
