@@ -1,5 +1,5 @@
 <template>
-  <div class="page is-index">
+  <div class="page is-gallery">
   </div>
 </template>
 
@@ -7,10 +7,10 @@
 import Vue from 'vue'
 
 export default Vue.extend({
-  name: 'IndexPage',
+  name: 'GalleryPage',
   head() {
     return {
-      title: 'Homepage Title',
+      title: 'Gallery Title',
     };
   }
 })

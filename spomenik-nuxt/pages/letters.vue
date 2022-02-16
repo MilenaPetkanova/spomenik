@@ -1,5 +1,5 @@
 <template>
-  <div class="page is-index">
+  <div class="page is-letters">
   </div>
 </template>
 
@@ -7,7 +7,7 @@
 import Vue from 'vue'
 
 export default Vue.extend({
-  name: 'IndexPage',
+  name: 'LettersPage',
   head() {
     return {
       title: 'Homepage Title',
