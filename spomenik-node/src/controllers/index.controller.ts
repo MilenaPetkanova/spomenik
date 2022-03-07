@@ -4,7 +4,7 @@ import pool from '../database'
 
 export const getLetters = async (req: Request, res: Response): Promise<Response> => {
 	try {
-		const response: QueryResult = await pool.query('SELECT * FROM letters')
+		const response: QueryResult = await pool.query('SELECT * FROM letters ORDER BY id DESC')
 		return res.status(200).json(response.rows);
 	} catch(e) {
 		console.error(e);
@@ -24,12 +24,12 @@ export const getLetterById = async (req: Request, res: Response): Promise<Respon
 
 export const createLetter = async (req: Request, res: Response): Promise<Response> => {
 	try {
-		const { text } = req.body;
-		await pool.query(`INSERT INTO letters (text) VALUES ('${text}')`)
+		const { content } = req.body;
+		await pool.query(`INSERT INTO letters (content) VALUES ('${content}')`)
 		return res.status(201).json({
 			message: 'Letter created successfully',
 			body: {
-				letter: { text }
+				letter: { content }
 			}
 		});
 	} catch(e) {
@@ -41,8 +41,8 @@ export const createLetter = async (req: Request, res: Response): Promise<Respons
 export const updateLetter = async (req: Request, res: Response): Promise<Response> => {
 	try {
 		const id = parseInt(req.params.id);
-		const { text } = req.body;
-		await pool.query(`UPDATE letters SET text='${text}' WHERE id=${id}`)
+		const { content } = req.body;
+		await pool.query(`UPDATE letters SET content='${content}' WHERE id=${id}`)
 		return res.status(200).json(`Letter ${id} updated successfully`);
 	} catch(e) {
 		console.error(e);
