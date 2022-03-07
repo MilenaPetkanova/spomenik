@@ -18,7 +18,8 @@ export default {
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
-    '~/assets/css/fonts.css'
+    '~/assets/css/fonts.css',
+    '~/assets/css/general.css',
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
@@ -26,7 +27,13 @@ export default {
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
-  components: true,
+  components: {
+    dirs: [
+      '~/components',
+      '~/components/letters',
+      '~/components/shared',
+    ]
+  },
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
@@ -34,13 +41,30 @@ export default {
     '@nuxt/typescript-build',
     // https://go.nuxtjs.dev/tailwindcss
     '@nuxtjs/tailwindcss',
+    // https://www.npmjs.com/package/@nuxtjs/moment
+    '@nuxtjs/moment',
+    // https://www.npmjs.com/package/@nuxtjs/fontawesome
+    '@nuxtjs/fontawesome',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
+    '@nuxtjs/axios',
+    "vue2-editor/nuxt",
   ],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
-  }
+  },
+
+  moment: {
+    defaultLocale: 'bg',
+    locales: ['bg']
+  },
+  
+  fontawesome: {
+    icons:{
+      solid: true,
+    }
+   },
 }
