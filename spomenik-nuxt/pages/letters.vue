@@ -1,17 +1,19 @@
 <template>
   <div class="page is-letters">
+    <div class="page__conatiner container py-8">
+      <LettersCreate />
+      <LettersList />
+    </div>
   </div>
 </template>
 
-<script lang="ts">
-import Vue from 'vue'
-
-export default Vue.extend({
+<script>
+export default {
   name: 'LettersPage',
   head() {
     return {
-      title: 'Homepage Title',
+      title: 'Letters',
     };
   }
-})
+}
 </script>
