@@ -6,11 +6,3 @@
 		</div>
 	</header>
 </template>
-
-<style lang="scss" scoped>
-.header {
-	&__container {
-		margin: 0 auto;
-	}
-}
-</style>

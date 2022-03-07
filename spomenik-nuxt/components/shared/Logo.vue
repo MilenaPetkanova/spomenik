@@ -1,6 +1,6 @@
 <template>
   <NuxtLink to="/">
-    <h1 class="logo w-8 h-8 text-blue-custom-400 font-bold">LOGO</h1>
+    <h1 class="logo w-8 h-8 text-blue-custom-400 font-bold">СПОМЕНИК</h1>
   </NuxtLink>
 </template>
 

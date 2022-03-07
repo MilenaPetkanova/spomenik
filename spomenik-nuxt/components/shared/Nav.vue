@@ -15,13 +15,6 @@
 </template>
 
 <style lang="scss" scoped>
-.nav {
-  &__element {
-    a {
-      @apply text-blue-custom-400;
-    }
-  }
-}
 </style>
 
 <script>
