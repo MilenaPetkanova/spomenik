@@ -24,14 +24,15 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
+    { src: '~/plugins/image-lightbox.js', ssr: false }
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: {
     dirs: [
-      '~/components',
-      '~/components/letters',
       '~/components/shared',
+      '~/components/letters',
+      '~/components/gallery',
     ]
   },
 
@@ -51,6 +52,7 @@ export default {
   modules: [
     '@nuxtjs/axios',
     "vue2-editor/nuxt",
+    '@nuxtjs/cloudinary',
   ],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
@@ -61,10 +63,16 @@ export default {
     defaultLocale: 'bg',
     locales: ['bg']
   },
-  
   fontawesome: {
     icons:{
       solid: true,
     }
-   },
+  },
+
+  cloudinary: {
+    cloudName: process.env.CLOUDNAME,
+    apiKey: process.env.CLOUD_API_KEY,
+    apiSecret: process.env.CLOUD_API_SECRET,
+    useComponent: true
+  },
 }
