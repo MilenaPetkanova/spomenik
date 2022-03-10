@@ -111,3 +111,16 @@ export const deleteGalleryRecord = async (req: Request, res: Response): Promise<
 		return res.status(500).json('Internal server error');
 	}
 }
+
+// User
+
+export const createUser = async (req: Request, res: Response): Promise<Response> => {
+	try {
+		return res.send({
+			mess: 'yeah'
+		})
+	} catch(e) {
+		console.error(e);
+		return res.status(500).json('Internal server error');
+	}
+}
