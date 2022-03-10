@@ -1,6 +1,6 @@
 <template>
-  <div class="letters-list">
-    <div 
+  <ul class="letters-list">
+    <li 
       class="letters-list__item relative mb-12" 
       v-for="letter in getLetters" :key="letter.id" 
       @mouseover="hoveredId = letter.id" 
@@ -25,8 +25,8 @@
         <div v-if="editedId !== letter.id" v-html="letter.content"></div>
         <LettersUpdate v-else :letter="letter" @updated="finishUpdating" />
       </div>
-    </div>
-  </div>
+    </li>
+  </ul>
 </template>
 
 <script>
