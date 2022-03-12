@@ -1,26 +1,20 @@
 <template>
-	<div class="register">
-    <form name="register" @submit.prevent="register">
-      <input 
-        type="text" 
-        name="name" 
-        placeholder="name" 
-        v-model="name" />
+	<div class="login">
+    <form name="login" @submit.prevent="login">
       <input 
         type="email" 
         name="email" 
         placeholder="email" 
-        autocomplete="new-password"
         v-model="email" />
       <input 
         type="password" 
         name="password" 
         placeholder="password" 
-        autocomplete="new-password" 
-        v-model="password" v-cloak/>
+        v-model="password" />
       <p v-html="error"></p>
-      <button
-        type="submit">Register</button>
+      <button 
+        type="submit">Login</button>
+      <p>{{getUser}}</p>
     </form>
 	</div>
 </template>
@@ -30,23 +24,28 @@
 
 <script>
 import AuthenticationService from '@/services/AuthenticationService'
+import { mapGetters, mapActions } from "vuex";
 export default {
   data() {
     return {
-      name: null,
 			email: null,
       password: null,
       error: null,
     }
   },
+  computed:{
+    ...mapGetters('authentication', [ 'getUser' ]) 
+	},
 	methods: {
-    async register() {
+    ...mapActions('authentication', ['setToken', 'setUser']),
+    async login() {
       try {
-        await AuthenticationService.register({
+        const response = await AuthenticationService.login({
           email: this.email, 
           password: this.password, 
-          name: this.name, 
         })
+        this.setToken(response.data.token)
+        this.setUser(response.data.user)
       } catch (error) {
         console.error(error);        
         this.error = error.response.data.error;

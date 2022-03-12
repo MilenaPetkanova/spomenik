@@ -34,10 +34,8 @@ export default {
     }
   },
 	computed:{
-    ...mapGetters('gallery', [
-      'getGallery',
-    ])
-  },
+    ...mapGetters('gallery', [ 'getGallery', ]) 
+	},
 	async mounted() {
     await this.fetchGallery();
   },
