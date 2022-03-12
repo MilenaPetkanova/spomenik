@@ -1,7 +1,8 @@
 import {Router} from 'express'
 import {getLetters, getLetterById, createLetter, updateLetter, deleteLetter} from '../controllers/index.controller'
 import {getGallery, createGalleryRecord, updateGalleryRecord, deleteGalleryRecord} from '../controllers/index.controller'
-import {createUser} from '../controllers/index.controller'
+import {register, login} from '../controllers/index.controller'
+import {validateUser} from '../policies/AuthenticationControllerPolicy'
 
 const router = Router()
 
@@ -16,6 +17,7 @@ router.post('/gallery', createGalleryRecord)
 router.put('/gallery/:id', updateGalleryRecord)
 router.delete('/gallery/:id', deleteGalleryRecord)
 
-router.post('/register', createUser)
+router.post('/register', validateUser, register)
+router.post('/login', login)
 
 export default router

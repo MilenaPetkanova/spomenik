@@ -1,37 +1,37 @@
 import { Model } from 'sequelize';
+const Promise = require('bluebird')
+const bcrypt = Promise.promisifyAll(require('bcrypt-nodejs'))
+
+function hashPassword (user: any, options: object) {
+  const SALT_FACTOR = 8
+  if (!user.changed('password')) {
+    return
+  }
+  return bcrypt
+    .genSaltAsync(SALT_FACTOR)
+    .then((salt: any) => bcrypt.hashAsync(user.password, salt, null))
+    .then((hash: any) => {
+      user.setDataValue('password', hash)
+    })
+}
 
 interface UserAttributes {
-  id: string;
   name: string;
   email: string;
   password: string;
+  comparePassword(candidatePassword: string): Promise<boolean>;
 }
 
 module.exports = (sequelize: any, DataTypes: any) => {
   class User extends Model<UserAttributes> implements UserAttributes {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
-    id!: string;
     name!: string;
     email!: string;
     password!: string;
-    static associate(models: any) {
-      // define association here
-      // User.belongsToMany(models.Letters, {
-      //   through: 'UserLetters'
-      // })
+    comparePassword(candidatePassword: string): Promise<boolean> {
+      return bcrypt.compareAsync(candidatePassword, this.password)
     }
   }
   User.init({
-    id: {
-      type: DataTypes.UUID,
-      defaultValue: DataTypes.UUIDV4,
-      allowNull: false,
-      primaryKey: true,
-    },
     name: {
       type: DataTypes.STRING,
       allowNull: false
@@ -46,8 +46,13 @@ module.exports = (sequelize: any, DataTypes: any) => {
       allowNull: false
     },
   }, {
+    hooks: {
+      beforeCreate: hashPassword,
+      beforeUpdate: hashPassword,
+  },
     sequelize,
     modelName: 'User',
   });
+
   return User;
 };
