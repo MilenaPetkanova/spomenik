@@ -29,12 +29,12 @@
 				type="text" 
 				v-model="caption"
 			/>
-			<button
+			<Button
 				class="gallery-upload__submit"
+				classes="is-primary"
+				label="Създайте"
 				@click="createGalleryRecord"
-			>
-				Създайте
-			</button>
+			></Button>
 		</div>
   </div>
 </template>

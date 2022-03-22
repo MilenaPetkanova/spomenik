@@ -13,39 +13,3 @@ a, button, h1, h2, h3, h4, h4, h6, p, ul, li, svg {
   @apply text-blue-custom-400;
 }
 
-/* TODO: Create Button shared component and move .btn styles there */
-.btn {
-  @apply 
-  block
-  font-semibold
-  py-3
-  px-4;
-}
-.btn .svg-inline--fa {
-  @apply text-black;
-}
-.btn.is-primary {
-  @apply bg-blue-custom-400 text-black;
-}
-.btn.is-secondary {
-  @apply 
-  bg-black
-  text-blue-custom-400
-  border-2
-  border-blue-custom-400;
-}
-.btn.is-secondary .svg-inline--fa {
-  @apply text-blue-custom-400;
-}
-.btn.is-tertiary {
-  @apply bg-black text-blue-custom-400;
-}
-.btn.is-tertiary .svg-inline--fa {
-  @apply text-blue-custom-400;
-}
-.btn.is-icon {
-  @apply w-12 h-12;
-}
-.btn.is-pill {
-  @apply rounded-4xl py-2 px-4;
-}

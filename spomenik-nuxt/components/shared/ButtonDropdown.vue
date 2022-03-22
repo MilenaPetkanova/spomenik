@@ -1,19 +1,19 @@
 <template>
   <div class="dropdown relative">
-    <button
-      class="dropdown__btn btn is-primary is-icon"
-      :class="btnClasses"
+    <Button
+      class="dropdown__btn-open "
+      :classes="`is-primary is-icon ${classes}`"
+      :icon="icon"
       v-if="!isOpen"
-      @click="toggleIsOpen(true)">
-      <font-awesome-icon :icon="btnIcon" />
-    </button>
-    <button
-      class="dropdown__btn-create btn is-primary is-icon mr-0 ml-auto"
-      :class="btnClasses"
+      v-on:click.native="toggleIsOpen(true)">
+    </Button>
+    <Button
+      class="dropdown__btn-close"
+      :classes="`is-primary is-icon ${classes}`"
+      icon="xmark"
       v-if="isOpen"
-      @click="toggleIsOpen(false)">
-      <font-awesome-icon :icon="['fas', 'xmark']" />
-    </button>
+      v-on:click.native="toggleIsOpen(false)">
+    </Button>
     <transition name="slide-down">
       <menu
         class="dropdown__menu absolute right-0 top-full min-w-max z-50 
@@ -32,11 +32,11 @@ export default {
       default: false,
       type: Boolean,
     },
-    btnIcon: {
+    icon: {
       default: null,
       type: [String, Array],
     },
-    btnClasses: {
+    classes: {
       default: null,
       type: String,
     },

@@ -2,7 +2,14 @@
 	<section class="gallery-list py-8">
 		<ul class="gallery-list__elements">
 			<li class="gallery-list__element px-1 mb-2">
-        <button class="btn" @click="showModal = true">Добавете</button>
+				<Button 
+					classes="is-secondary w-full h-full"
+					v-on:click.native="showModal = true">
+					<template v-slot:content>
+						<font-awesome-icon icon="circle-plus" />
+    				<p class="btn--full__text text-xs">Добавете</p> 
+					</template>
+				</Button>
     		<Modal v-show="showModal" @close-modal="showModal = false" >
           <GalleryUpload @close-modal="showModal = false" />
         </Modal>

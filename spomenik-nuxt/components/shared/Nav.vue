@@ -5,14 +5,13 @@
         class="nav__element mr-3" 
         v-for="(element, index) in navElements" 
         :key="index">
-        <button 
-          class="nav__btn btn is-pill" 
-          :class="[currentRoute === element.route ? 'is-primary' : 'is-secondary']"
-          @click="redIrectTo(element.route)"
-        >
-          <font-awesome-icon :icon="element.icon" />
-          <span class="ml-2">{{element.label}}</span>
-        </button>
+        <Button 
+          class="nav__btn" 
+          :classes="[currentRoute === element.route ? 'is-primary is-pill' : 'is-secondary is-pill']"
+          :label="element.label"
+          :icon="element.icon"
+          v-on:click.native="redIrectTo(element.route)">
+        </Button>
       </li>
     </ul>
   </nav>
@@ -29,13 +28,13 @@ export default {
         {
           route: 'gallery',
           label: 'Галерия',
-          icon: ['fas', 'photo-film'],
+          icon: 'photo-film',
           type: 'primary',
         },
         {
           route: 'letters',
           label: 'Писма',
-          icon: ['fas', 'book'],
+          icon: 'book',
           type: 'primary',
         },
       ],
