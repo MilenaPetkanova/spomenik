@@ -1,0 +1,17 @@
+.page-transition-enter-active,
+.page-transition-leave-active {
+  transition: opacity 0.3s;
+}
+.page-transition-enter,
+.page-transition-leave-active {
+  opacity: 0;
+}
+
+.slide-down-enter-active, 
+.slide-down-leave-active {
+  transition: all 0.3s ease-in-out;
+}
+.slide-down-enter,
+.slide-down-leave-to {
+  @apply transform -translate-y-5 opacity-0;
+}
