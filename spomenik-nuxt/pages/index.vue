@@ -8,10 +8,11 @@ import Vue from 'vue'
 
 export default Vue.extend({
   name: 'IndexPage',
+  transition: 'page-transition',
   head() {
     return {
       title: 'Homepage Title',
     };
-  }
+  },
 })
 </script>

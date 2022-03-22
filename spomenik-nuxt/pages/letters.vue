@@ -10,10 +10,11 @@
 <script>
 export default {
   name: 'LettersPage',
+  transition: 'page-transition',
   head() {
     return {
       title: 'Letters',
     };
-  }
+  },
 }
 </script>

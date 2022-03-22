@@ -16,6 +16,7 @@
 <script>
 export default{
   name: 'GalleryPage',
+  transition: 'page-transition',
   head() {
     return {
       title: 'Gallery',
