@@ -9,7 +9,6 @@
           class="nav__btn" 
           :classes="[currentRoute === element.route ? 'is-primary is-pill' : 'is-secondary is-pill']"
           :label="element.label"
-          :icon="element.icon"
           v-on:click.native="redIrectTo(element.route)">
         </Button>
       </li>

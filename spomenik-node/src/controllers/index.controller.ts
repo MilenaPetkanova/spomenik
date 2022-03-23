@@ -88,8 +88,8 @@ export const getGallery = async (req: Request, res: Response): Promise<Response>
 
 export const createGalleryRecord = async (req: Request, res: Response): Promise<Response> => {
 	try {
-		const { src, caption } = req.body;
-		await pool.query(`INSERT INTO gallery (src, caption) VALUES ('${src}', '${caption}')`)
+		const { src, caption, year, location } = req.body;
+		await pool.query(`INSERT INTO gallery (src, caption, year, location) VALUES ('${src}', '${caption}', ${year}, '${location}')`)
 		return res.status(201).json({
 			message: 'Gallery record created successfully',
 		});

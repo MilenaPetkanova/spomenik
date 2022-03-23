@@ -40,7 +40,7 @@ export default {
 
 <style lang="scss">
 .btn {
-  @apply block font-semibold py-3 px-4;
+  @apply block cursor-pointer max-w-max font-semibold py-3 px-4;
 
   .svg-inline--fa {
     @apply text-black;

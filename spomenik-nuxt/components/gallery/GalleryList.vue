@@ -1,22 +1,12 @@
 <template>
-	<section class="gallery-list py-8">
+	<section class="gallery-list py-2">
 		<ul class="gallery-list__elements">
 			<li class="gallery-list__element px-1 mb-2">
-				<Button 
-					classes="is-secondary w-full h-full"
-					v-on:click.native="showModal = true">
-					<template v-slot:content>
-						<font-awesome-icon icon="circle-plus" />
-    				<p class="btn--full__text text-xs">Добавете</p> 
-					</template>
-				</Button>
-    		<Modal v-show="showModal" @close-modal="showModal = false" >
-          <GalleryUpload @close-modal="showModal = false" />
-        </Modal>
+				<GalleryCreate />
 			</li>
 			<li 
 			  class="gallery-list__element px-1 mb-2"
-				v-for="(element, index) in getGallery" :key="index"
+				v-for="(element, index) in gallery" :key="index"
 			>
 				<img
 					class="gallery-list__thumb h-full object-cover"
@@ -25,11 +15,12 @@
 				>
 			</li>
 		</ul>
+		<ShareModal v-if="shownModal === modalsEnum.Share" postUrl="test" />
 		<client-only v-if="isLoaded">
 			<light-box     
 				class="gallery-list__lightbox"   
 				ref="lightbox"
-				:media="getGallery"         
+				:media="gallery"         
 				:show-caption="true"
 				:show-light-box="false" 
 			/>
@@ -44,11 +35,11 @@ export default {
     return {
 			index: null,
 			isLoaded: false,
-			showModal: false,
     }
   },
 	computed:{
-    ...mapGetters('gallery', [ 'getGallery', ]) 
+    ...mapGetters('gallery', ['gallery']),
+		...mapGetters('modals', ['shownModal', 'modalsEnum']),
 	},
 	async mounted() {
     await this.fetchGallery();
@@ -66,7 +57,7 @@ export default {
     },
 		openGallery(index) {
       this.$refs.lightbox.showImage(index)
-    }
+    },
 	}
 }
 </script>

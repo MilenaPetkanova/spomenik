@@ -1,20 +1,19 @@
 export const state = () => ({
   gallery: [],
+  newRecordSrc: null,
+  newRecord: {},
 })
   
 export const mutations = {
   initGallery(state, gallery) {
     state.gallery = gallery
   },
-  addGallery(state, item) {
-    state.gallery.push(item)
+  startNewRecord(state, src) {
+    state.newRecordSrc = src
   },
-  updateGallery(state, item) {
-    const outdatedItem = state.gallery.find(i => i.id === item.id);
-    Object.assign(outdatedItem, item);
-  },
-  removeGallery(state, itemId) {
-    state.gallery = state.gallery.filter((item) => item.id !== itemId)
+  updateNewRecord(state, item) {
+    state.newRecord = item
+    state.newRecord.src = state.newRecordSrc
   },
 }
 
@@ -25,19 +24,22 @@ export const actions = {
     })
     commit('initGallery', gallery);
   },
-  addGallery({ commit }, item) {
-    commit('addGallery', item);
+  startNewRecord({ commit }, src) {
+    commit('startNewRecord', src);
   },
-  updateGallery({ commit }, item) {
-    commit('updateGallery', item);
-  },
-  removeGallery({ commit }, itemId) {
-    commit('removeGallery', itemId);
+  updateNewRecord({ commit }, item) {
+    commit('updateNewRecord', item);
   },
 }
 
 export const getters = {
-  getGallery: (state) => {
+  gallery: (state) => {
     return state.gallery
+  },
+  newRecordSrc: (state) => {
+    return state.newRecordSrc
+  },
+  newRecord: (state) => {
+    return state.newRecord
   },
 }

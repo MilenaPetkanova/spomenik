@@ -12,4 +12,6 @@
 a, button, h1, h2, h3, h4, h4, h6, p, ul, li, svg {
   @apply text-blue-custom-400;
 }
-
+label {
+  @apply text-left;
+}
