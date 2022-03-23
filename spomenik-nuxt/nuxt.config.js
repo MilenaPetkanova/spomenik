@@ -55,6 +55,7 @@ export default {
     '@nuxtjs/axios',
     "vue2-editor/nuxt",
     '@nuxtjs/cloudinary',
+    '@nuxtjs/toast',
   ],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
@@ -77,4 +78,17 @@ export default {
     apiSecret: process.env.CLOUD_API_SECRET,
     useComponent: true
   },
+
+  toast: {
+    position: 'top-right',
+    register: [ // Register custom toasts
+      {
+        name: 'my-error',
+        message: 'Oops...Something went wrong',
+        options: {
+          type: 'error'
+        }
+      }
+    ]
+}
 }

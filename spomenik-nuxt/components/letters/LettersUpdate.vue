@@ -6,7 +6,10 @@
 			</client-only>
 		</div>
 		<div class="letter-create__cta flex justify-end py-8">
-			<button @click="update">Запазете промените</button>
+			<Button
+        label="Запазете промените" 
+        v-on:click.native="update">
+      </Button>
 		</div>
 	</div>
 </template>

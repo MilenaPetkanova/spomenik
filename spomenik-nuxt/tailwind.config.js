@@ -13,6 +13,9 @@ module.exports = {
         'montserrat': ['montserrat', 'sans-serif'],
         'nunito': ['nunito', 'sans-serif'],
       },
+      borderRadius: {
+        '4xl': '60px',
+      }
     },
   },
   variants: {

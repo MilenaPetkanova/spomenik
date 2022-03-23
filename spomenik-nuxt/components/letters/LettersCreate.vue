@@ -5,9 +5,11 @@
 				<vue-editor v-model="content" />
 			</client-only>
 		</div>
-		<div class="letter-create__cta flex justify-end py-8">
-			<button @click="createLetter">Създайте</button>
-		</div>
+    <Button
+      class="letter-create__cta flex justify-end py-8"
+      label="Създайте" 
+      v-on:click.native="createLetter">
+    </Button>
 	</div>
 </template>
 
