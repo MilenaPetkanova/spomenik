@@ -72,15 +72,15 @@ export default {
 		...mapActions('gallery', ['initGallery', 'updateNewRecord']),
 		...mapActions('modals', ['showModal']),
 		async createGalleryRecord() {
-			// const newRecord = {
-			// 	year: this.year,
-			// 	location: this.location,
-			// 	caption: this.caption,
-			// }
-			// this.updateNewRecord(newRecord);
-			// await this.$axios.$post('http://localhost:8000/gallery', newRecord)
-			// const gallery = await this.$axios.$get('http://localhost:8000/gallery')
-			// this.initGallery(gallery)
+			const newRecord = {
+				year: this.year,
+				location: this.location,
+				caption: this.caption,
+			}
+			this.updateNewRecord(newRecord);
+			await this.$axios.$post('http://localhost:8000/gallery', newRecord)
+			const gallery = await this.$axios.$get('http://localhost:8000/gallery')
+			this.initGallery(gallery)
 			this.showModal(this.modalsEnum.GalleryCreateStep3)
 		}
 	}

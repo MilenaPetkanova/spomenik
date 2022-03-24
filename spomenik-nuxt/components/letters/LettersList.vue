@@ -1,32 +1,35 @@
 <template>
-  <ul class="letters-list">
-    <li 
-      class="letters-list__item relative mb-12" 
-      v-for="letter in getLetters" :key="letter.id" 
-      @mouseover="hoveredId = letter.id" 
-      @mouseout="hoveredId = null"
-    >
-      <div class="letters-list__date mb-4">
-        <p>{{ $moment(letter.created_on).format('LL')}}</p>
-      </div>
-      <div 
-        class="letters-list__cta absolute top-0 right-0" 
-        v-if="editedId !== letter.id" 
-        v-show="hoveredId === letter.id"
+  <section class="letters-list">
+    <ul class="letters-list__elements">
+      <li 
+        class="letters-list__element relative mb-12" 
+        v-for="letter in letters" :key="letter.id" 
+        @mouseover="hoveredId = letter.id" 
+        @mouseout="hoveredId = null"
       >
-        <button class="mr-4" @click="startUpdating(letter.id)">
-          <font-awesome-icon icon="pen" />
-        </button>
-        <button @click="deleteLetter(letter.id)">
-          <font-awesome-icon icon="trash-can" />
-        </button>
-      </div>
-      <div class="letters-list__content">
-        <div v-if="editedId !== letter.id" v-html="letter.content"></div>
-        <LettersUpdate v-else :letter="letter" @updated="finishUpdating" />
-      </div>
-    </li>
-  </ul>
+        <div class="letters-list__date mb-4">
+          <p>{{ $moment(letter.created_on).format('LL') }}</p>
+        </div>
+        <div 
+          class="letters-list__cta absolute top-0 right-0" 
+          v-if="editedId !== letter.id" 
+          v-show="hoveredId === letter.id"
+        >
+          <button class="mr-4" @click="startUpdating(letter.id)">
+            <font-awesome-icon icon="pen" />
+          </button>
+          <button @click="deleteLetter(letter.id)">
+            <font-awesome-icon icon="trash-can" />
+          </button>
+        </div>
+        <div class="letters-list__content">
+          <div v-if="editedId !== letter.id" v-html="letter.content"></div>
+          <LettersUpdate v-else :letter="letter" @updated="finishUpdating" />
+        </div>
+      </li>
+    </ul>
+    <ShareModal v-if="shownModal === modalsEnum.Share" postUrl="test" />
+  </section>
 </template>
 
 <script>
@@ -39,9 +42,8 @@ export default {
     }
   },
   computed:{
-    ...mapGetters('letters', [
-      'getLetters',
-    ])
+    ...mapGetters('letters', ['letters']),
+    ...mapGetters('modals', ['shownModal', 'modalsEnum']),
   },
   async mounted() {
     await this.fetchLetters();
@@ -73,6 +75,3 @@ export default {
 	}
 }
 </script>
-
-<style lang="scss" scoped>
-</style>
