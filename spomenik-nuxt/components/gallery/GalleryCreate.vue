@@ -8,9 +8,9 @@
 				<p class="btn--full__text text-xs">Добавете</p> 
 			</template>
 		</Button>
-		<GalleryCreateStepOne v-if="shownModal === modalsEnum.GalleryCreateStep1" />
-		<GalleryCreateStepTwo v-if="shownModal === modalsEnum.GalleryCreateStep2" />
-		<GalleryCreateStepThree v-if="shownModal === modalsEnum.GalleryCreateStep3" />
+		<GalleryCreateStep1 v-if="shownModal === modalsEnum.GalleryCreateStep1" />
+		<GalleryCreateStep2 v-if="shownModal === modalsEnum.GalleryCreateStep2" />
+		<GalleryCreateStep3 v-if="shownModal === modalsEnum.GalleryCreateStep3" />
 	</div>
 </template>
 

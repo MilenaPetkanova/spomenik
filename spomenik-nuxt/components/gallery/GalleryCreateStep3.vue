@@ -14,13 +14,13 @@
 					<Button
 						class="is-tertiary is-icon"
 						icon="share-nodes"
-						v-on:click.native="showShareModal">
+						v-on:click.native="showModal(modalsEnum.Share)">
 					</Button>
 				</span>
 			</div>
 		</template>
 		<template v-slot:body>
-			<GalleryPost :post="newRecord" />
+			<GalleryDetails :post="newRecord" />
 		</template>
 	</Modal>
 </template>
@@ -33,10 +33,7 @@ export default {
 		...mapGetters('modals', ['shownModal', 'modalsEnum']),
 	},
 	methods: {
-	...mapActions('modals', ['showModal']),
-		showShareModal() {
-			this.showModal(this.modalsEnum.Share)
-		}
+		...mapActions('modals', ['showModal']),
 	}
 } 
 </script>
