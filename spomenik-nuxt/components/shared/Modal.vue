@@ -1,6 +1,6 @@
 <template>
   <div 
-		class="modal w-full h-full fixed top-0 left-0 flex justify-center" 
+		class="modal z-10 w-full h-full fixed top-0 left-0 flex justify-center" 
 		@click="$emit('close-modal')">
     <div 
 			class="modal__window w-full h-full bg-black text-center" 
