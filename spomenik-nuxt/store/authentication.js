@@ -35,7 +35,6 @@ export const getters = {
     return state.user
   },
   isAuthenticated: (state) => {
-    console.log('state.accessToken :>> ', state.accessToken);
     return !!state.accessToken
   },
   

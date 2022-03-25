@@ -1,4 +1,4 @@
-import {Request, Response, NextFunction} from 'express'
+import {Request, Response} from 'express'
 import {QueryResult} from 'pg'
 import pool from '../database'
 import db from '../models'
