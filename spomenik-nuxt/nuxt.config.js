@@ -21,6 +21,7 @@ export default {
     '~/assets/css/fonts.css',
     '~/assets/css/general.css',
     '~/assets/css/transitions.css',
+    '~/assets/css/fields.css',
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins

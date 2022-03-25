@@ -1,0 +1,30 @@
+input, 
+textarea { 
+  @apply w-full text-gray-300 bg-black-custom-600 border-0 border-b-2 border-blue-custom-400 p-2;
+  transition: all 0.3s;
+}
+textarea {
+  max-height: 120px;
+  resize: none;
+}
+input:focus, 
+input:focus-visible, 
+textarea:focus {
+  @apply border-b-2 border-blue-custom-600; 
+}
+::placeholder,
+:-ms-input-placeholder, /* Internet Explorer 10-11 */
+::-webkit-input-placeholder /* Edge */ {
+  @apply italic text-gray-300 opacity-75; 
+}
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus,
+input:-webkit-autofill:focus-visible,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus {
+  @apply bg-black-custom-600 border-0 border-b-2 border-blue-custom-400;
+  -webkit-text-fill-color: #d1d5db;
+  -webkit-box-shadow: 0 0 0px 1000px #1b1c1e inset;
+}

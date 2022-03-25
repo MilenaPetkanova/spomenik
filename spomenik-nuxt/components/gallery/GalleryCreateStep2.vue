@@ -24,14 +24,14 @@
 			<div class="row flex px-4 py-8">
 				<img class="w-32 h-32 object-cover" :src="newRecordSrc" alt="image-preview" /> 
 				<div class="flex flex-col pl-4">
-					<label for="year">Година</label>
+					<label class="text-left" for="year">Година</label>
 					<input 
 						class="w-full mb-4"
 						type="text" 
 						name="year"
 						v-model="year"
 					/>
-					<label for="location">Локация</label>
+					<label class="text-left" for="location">Локация</label>
 					<input 
 						class="w-full"
 						type="text" 
@@ -41,7 +41,6 @@
 				</div>
 			</div>
 			<div class="row px-4">
-				<!-- <label for="caption">История към снимка</label> -->
 				<textarea 
 					class="w-full"
 					type="text" 
