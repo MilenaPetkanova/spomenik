@@ -2,10 +2,10 @@ import createPersistedState from 'vuex-persistedstate';
 
 export default ({ isDev, store, app }) => {
   createPersistedState({
-    key: 'authentication',
+    key: 'auth',
     paths: [
-      'authentication.accessToken',
-      'authentication.refreshToken'
+      'auth.accessToken',
+      'auth.refreshToken'
     ],
     storage: {
       getItem: key => app.$cookies.get(key),

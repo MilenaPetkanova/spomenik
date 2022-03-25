@@ -11,7 +11,7 @@ import Vue from 'vue'
 
 export default Vue.extend({
   name: 'LoginPage',
-  layout: 'authentication',
+  layout: 'auth',
   head() {
     return {
       title: 'Login',

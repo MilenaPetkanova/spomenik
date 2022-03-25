@@ -36,7 +36,7 @@ export default {
   components: {
     dirs: [
       '~/components/shared',
-      '~/components/authentication',
+      '~/components/auth',
       '~/components/letters',
       '~/components/gallery',
     ]
