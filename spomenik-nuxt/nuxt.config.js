@@ -25,7 +25,10 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    { src: '~/plugins/image-lightbox.js', ssr: false }
+    { src: '~/plugins/image-lightbox', ssr: false },
+    { src: '~/plugins/simple-vue-validator', ssr: true },
+    { src: '~/plugins/vuex-persistedstate', ssr: true },
+    { src: '~/plugins/axios', ssr: true },
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -56,6 +59,7 @@ export default {
     "vue2-editor/nuxt",
     '@nuxtjs/cloudinary',
     '@nuxtjs/toast',
+    'cookie-universal-nuxt',
   ],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
@@ -89,6 +93,11 @@ export default {
           type: 'error'
         }
       }
-    ]
-}
+    ] 
+  },
+
+  router: {
+    middleware: ['auth']
+  },
+  
 }

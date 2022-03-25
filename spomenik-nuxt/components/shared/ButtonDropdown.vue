@@ -17,7 +17,7 @@
     <transition name="slide-down">
       <menu
         class="dropdown__menu absolute right-0 top-full min-w-max z-50 
-        bg-black border-b-2 border-r-2 border-blue-custom-400 pt-4"
+        bg-black-custom-600 border-b-2 border-r-2 border-blue-custom-400 pt-4"
         v-if="isOpen">
         <slot name="list"></slot>
       </menu>

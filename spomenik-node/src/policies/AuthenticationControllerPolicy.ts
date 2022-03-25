@@ -1,5 +1,7 @@
 import {Request, Response, NextFunction} from 'express'
 import Joi from 'joi'
+import jwt from 'jsonwebtoken'
+import config from '../config/config'
 
 export const validateUser = async (req: Request, res: Response, next: NextFunction) => {
   const schema = Joi.object({
@@ -36,5 +38,23 @@ export const validateUser = async (req: Request, res: Response, next: NextFuncti
           error: 'Invalid registration information'
         })    
     }
+  }
+}
+
+export const authenticateJWT = async (req: Request, res: Response, next: NextFunction) => {
+  const authHeader = req.headers.authorization;
+
+  if (authHeader) {
+      const token = authHeader.split(' ')[1];
+
+      jwt.verify(token, config?.authentication?.jwtAccessSecret, (err: any, user: any) => {
+          if (err) {
+              return res.sendStatus(403);
+          }
+
+          next();
+      });
+  } else {
+      res.sendStatus(401);
   }
 }

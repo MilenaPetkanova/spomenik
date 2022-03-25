@@ -51,17 +51,21 @@ export default {
   }
 
   &.is-secondary {
-    @apply bg-black text-blue-custom-400 border-2 border-blue-custom-400;
+    @apply bg-black-custom-600 text-blue-custom-400 border-2 border-blue-custom-400;
     .svg-inline--fa {
       @apply text-blue-custom-400;
     }
   }
 
   &.is-tertiary {
-    @apply bg-black text-blue-custom-400;
+    @apply bg-black-custom-600 text-blue-custom-400;
     .svg-inline--fa {
       @apply text-blue-custom-400;
     }
+  }
+
+  &.is-link {
+    @apply underline py-2 px-0;
   }
 
   &.is-icon {

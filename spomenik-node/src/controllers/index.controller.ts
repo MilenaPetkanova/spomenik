@@ -5,12 +5,20 @@ import db from '../models'
 import jwt from 'jsonwebtoken'
 import config from '../config/config'
 
-function jwtLoginUser(user: object) {
+function generateJwtAccessToken(user: object) {
 	const ONE_WEEK = 60 * 60 * 24 * 7
-	return jwt.sign(user, config?.authentication?.jwtSecret, {
+	return jwt.sign(user, config?.authentication?.jwtAccessSecret, {
 		expiresIn: ONE_WEEK
 	})
 } 	
+
+function generateJwtRefreshToken(user: object) {
+	const ONE_WEEK = 60 * 60 * 24 * 7
+	return jwt.sign(user, config?.authentication?.jwtRefreshSecret, {
+		expiresIn: ONE_WEEK
+	})
+} 
+
 
 // Letters
 
@@ -127,7 +135,14 @@ export const deleteGalleryRecord = async (req: Request, res: Response): Promise<
 export const register = async (req: Request, res: Response): Promise<Response> => {
 	try {
 		const user = await db.User.create(req.body)
-		return res.send(user.toJSON())
+		const userJson = user.toJSON();
+		return res.send({
+			user: userJson,
+			tokens: {
+				accessToken: generateJwtAccessToken(userJson),
+				refreshToken: generateJwtRefreshToken(userJson)
+			}
+		})
 	} catch(error: any) {
 		console.error(error);
 		if(error?.errors[0].type === 'unique violation') {
@@ -137,7 +152,7 @@ export const register = async (req: Request, res: Response): Promise<Response> =
 	}
 }
 
-export const login =async (req: Request, res: Response,): Promise<Response> => {
+export const login = async (req: Request, res: Response,): Promise<Response> => {
 	try {
 		const {email, password} = req.body
 		const user = await db.User.findOne({
@@ -161,11 +176,34 @@ export const login =async (req: Request, res: Response,): Promise<Response> => {
 		const userJson = user.toJSON();
 		return res.send({
 			user: userJson,
-			token: jwtLoginUser(userJson)
+			tokens: {
+				accessToken: generateJwtAccessToken(userJson),
+				refreshToken: generateJwtRefreshToken(userJson)
+			}
 		})
 	} catch(error) {
 		return res.status(500).send({
 			error: 'An error has occured while trying to log in'
 		});
+	}
+}
+
+export const refresh = async (req: Request, res: Response): Promise<Response> => {
+	try {
+		const user = await db.User.create(req.body)
+		const userJson = user.toJSON();
+		return res.send({
+			user: userJson,
+			tokens: {
+				accessToken: generateJwtAccessToken(userJson),
+				refreshToken: generateJwtRefreshToken(userJson)
+			}
+		})
+	} catch(error: any) {
+		console.error(error);
+		if(error?.errors[0].type === 'unique violation') {
+			return res.status(400).json({error: 'This email is already in use'});
+		}
+		return res.status(500).json({error: 'Internal server error'});
 	}
 }
