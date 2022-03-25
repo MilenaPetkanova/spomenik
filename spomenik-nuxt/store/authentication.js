@@ -1,26 +1,29 @@
 export const state = () => ({
-  token: null,
+  accessToken: null,
+  refreshToken: null,
   user: null,
-  isLoggedIn: false,
 })
 
 export const mutations = {
-  setToken(state, token) {
-    state.token = token
+  setTokens(state, { accessToken, refreshToken = null }) {
+    state.accessToken = accessToken
+    if (refreshToken) {
+      state.refreshToken = refreshToken
+    }
   },
   setUser(state, user) {
     state.user = user
-    if(user) {
-      state.isLoggedIn = true
-    } else {
-      state.isLoggedIn = false
-    }
+  },
+  logout(state) {
+    state.accessToken = null
+    state.refreshToken = null
+    state.user = null
   }
 }
 
 export const actions = {
-  setToken({commit}, token) {
-    commit('setToken', token)
+  setTokens({commit}, tokens) {
+    commit('setTokens', tokens)
   },
   setUser({commit}, user) {
     commit('setUser', user)
@@ -28,10 +31,12 @@ export const actions = {
 }
 
 export const getters = {
-  getUser: (state) => {
+  user: (state) => {
     return state.user
   },
-  getIsLoggedIn: (state) => {
-    return state.isLoggedIn
+  isAuthenticated: (state) => {
+    console.log('state.accessToken :>> ', state.accessToken);
+    return !!state.accessToken
   },
+  
 }
