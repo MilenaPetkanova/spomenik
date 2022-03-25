@@ -18,7 +18,7 @@ export const mutations = {
     state.accessToken = null
     state.refreshToken = null
     state.user = null
-  }
+  },
 }
 
 export const actions = {
@@ -27,7 +27,10 @@ export const actions = {
   },
   setUser({commit}, user) {
     commit('setUser', user)
-  }
+  },
+  logout({commit}) {
+    commit('logout')
+  },
 }
 
 export const getters = {
