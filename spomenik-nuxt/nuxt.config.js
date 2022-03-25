@@ -30,6 +30,9 @@ export default {
     { src: '~/plugins/simple-vue-validator', ssr: true },
     { src: '~/plugins/vuex-persistedstate', ssr: true },
     { src: '~/plugins/axios', ssr: true },
+    // services
+    { src: '~/services/gallery', ssr: true },
+    { src: '~/services/letters', ssr: true },
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components

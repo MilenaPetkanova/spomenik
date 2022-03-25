@@ -46,10 +46,10 @@ export default {
 	},
 	methods: {
     ...mapActions('modals', ['showModal']),
-    ...mapActions('letters', ['setShownLetter']),
+    ...mapActions('letters', ['initLetters', 'setShownLetter']),
     async fetchLetters() {
       try {
-        const letters = await this.$axios.$get('http://localhost:8000/letters')
+        const letters = await this.$lettersService.getAll()
         this.initLetters(letters)
       } catch (error) {
         console.error(error)
@@ -60,7 +60,7 @@ export default {
 				const newLetter = {
 					content: this.content,
 				}
-        await this.$axios.$post('http://localhost:8000/letters', newLetter)
+				await this.$lettersService.create(newLetter)
         this.fetchLetters()
         newLetter.created_on = this.$moment().unix()
         this.setShownLetter(newLetter)

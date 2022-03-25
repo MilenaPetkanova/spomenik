@@ -77,8 +77,8 @@ export default {
 				caption: this.caption,
 			}
 			this.updateNewRecord(newRecord);
-			await this.$axios.$post('http://localhost:8000/gallery', newRecord)
-			const gallery = await this.$axios.$get('http://localhost:8000/gallery')
+			await this.$galleryService.create(newRecord)
+			const gallery = await this.$galleryService.getAll();
 			this.initGallery(gallery)
 			this.showModal(this.modalsEnum.GalleryCreateStep3)
 		}

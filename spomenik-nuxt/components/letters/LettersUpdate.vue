@@ -30,7 +30,7 @@ export default {
     ...mapActions('letters', ['updateLetter']),
     async update() {
       try {
-        await this.$axios.$put(`http://localhost:8000/letters/${this.letterValue.id}`, this.letterValue)
+        await this.$lettersService.update(this.letterValue.id, this.letterValue)
         this.updateLetter(this.letterValue);
         this.$emit('updated', true)
       } catch (error) {

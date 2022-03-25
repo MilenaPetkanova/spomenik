@@ -55,7 +55,7 @@
 <script>
 import { mapGetters, mapActions } from "vuex"
 import { Validator } from 'simple-vue-validator'
-import authService from '~/services/auth.service'
+import authService from '~/services/auth'
 export default {
   data() {
     return {
