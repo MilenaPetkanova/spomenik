@@ -9,7 +9,7 @@
           class="nav__btn" 
           :classes="[currentRoute === element.route ? 'is-primary is-pill' : 'is-secondary is-pill']"
           :label="element.label"
-          v-on:click.native="redIrectTo(element.route)">
+          @click.native="$router.push(element.route)">
         </Button>
       </li>
     </ul>
@@ -44,10 +44,5 @@ export default {
       return this.$route.name;
     }
   },
-  methods: {
-    redIrectTo(path) {
-      this.$router.push({ path })
-    }
-  }
 }
 </script>

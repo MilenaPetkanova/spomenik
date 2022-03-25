@@ -1,7 +1,7 @@
 <template>
   <div class="page is-register">
     <div class="page__conatiner container py-8">
-      <Register />
+      <RegisterForm />
     </div>
   </div>
 </template>
@@ -11,6 +11,7 @@ import Vue from 'vue'
 
 export default Vue.extend({
   name: 'RegisterPage',
+  layout: 'authentication',
   head() {
     return {
       title: 'Register',

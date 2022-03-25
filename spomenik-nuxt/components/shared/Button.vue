@@ -64,6 +64,10 @@ export default {
     }
   }
 
+  &.is-link {
+    @apply underline py-2 px-0;
+  }
+
   &.is-icon {
     @apply w-12 h-12;
   }

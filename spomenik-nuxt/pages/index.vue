@@ -8,6 +8,7 @@ import Vue from 'vue'
 
 export default Vue.extend({
   name: 'IndexPage',
+  middleware: 'redirect',
   transition: 'page-transition',
   head() {
     return {
