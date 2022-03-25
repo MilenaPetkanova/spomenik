@@ -9,14 +9,14 @@
 					<Button
 						class="is-tertiary is-icon"
 						icon="xmark"
-						v-on:click.native="showModal(null)">
+						@click.native="showModal(null)">
 					</Button>
 					<h1>Добавяне на писмо</h1>
 				</span>
 				<Button
 					class="is-tertiary is-icon"
 					icon="arrow-right-long"
-					v-on:click.native="createLetter">
+					@click.native="createLetter">
 				</Button>
 			</div>
 		</template>

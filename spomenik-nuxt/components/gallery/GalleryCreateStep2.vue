@@ -9,14 +9,14 @@
 					<Button
 						class="is-tertiary is-icon"
 						icon="xmark"
-						v-on:click.native="showModal(null)">
+						@click.native="showModal(null)">
 					</Button>
 					<h1>Добавяне на снимка / видео</h1>
 				</span>
 				<Button
 					class="is-tertiary is-icon"
 					icon="check"
-					v-on:click.native="createGalleryRecord(3)">
+					@click.native="createGalleryRecord(3)">
 				</Button>
 			</div>
 		</template>

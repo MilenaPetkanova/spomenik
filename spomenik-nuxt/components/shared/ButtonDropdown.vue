@@ -5,14 +5,14 @@
       :classes="`is-primary is-icon ${classes}`"
       :icon="icon"
       v-if="!isOpen"
-      v-on:click.native="toggleIsOpen(true)">
+      @click.native="toggleIsOpen(true)">
     </Button>
     <Button
       class="dropdown__btn-close"
       :classes="`is-primary is-icon ${classes}`"
       icon="xmark"
       v-if="isOpen"
-      v-on:click.native="toggleIsOpen(false)">
+      @click.native="toggleIsOpen(false)">
     </Button>
     <transition name="slide-down">
       <menu

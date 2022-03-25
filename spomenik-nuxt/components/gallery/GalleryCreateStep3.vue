@@ -8,13 +8,13 @@
 				<Button
 					class="is-tertiary is-icon"
 					icon="xmark"
-					v-on:click.native="showModal(null)">
+					@click.native="showModal(null)">
 				</Button>
 				<span class="flex items-center">
 					<Button
 						class="is-tertiary is-icon"
 						icon="share-nodes"
-						v-on:click.native="showModal(modalsEnum.Share)">
+						@click.native="showModal(modalsEnum.Share)">
 					</Button>
 				</span>
 			</div>

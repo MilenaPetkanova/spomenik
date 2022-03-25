@@ -2,7 +2,7 @@
 	<div class="gallery-create h-full">
 		<Button 
 			classes="is-secondary w-full h-full"
-			v-on:click.native="showModal(modalsEnum.GalleryCreateStep1)">
+			@click.native="showModal(modalsEnum.GalleryCreateStep1)">
 			<template v-slot:content>
 				<font-awesome-icon icon="circle-plus" />
 				<p class="btn--full__text text-xs">Добавете</p> 

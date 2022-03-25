@@ -8,7 +8,7 @@
 		<div class="letter-create__cta flex justify-end py-8">
 			<Button
         label="Запазете промените" 
-        v-on:click.native="update">
+        @click.native="update">
       </Button>
 		</div>
 	</div>

@@ -44,7 +44,7 @@
 									classes="is-tertiary"
 									icon="arrow-right-from-bracket"
 									label="Изход"
-									v-on:click.native="logout">
+									@click.native="logout">
 								</Button>
 							</li>
 						</ul>
