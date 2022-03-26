@@ -2,17 +2,10 @@
 
 ## Project brief
 
-Working title: 
-Spomenik
-
-Problems than it solves: 
-Scattering our chilren's photoes and video though devices and social medias. Forgetting great stories we'll want to share with them in the future.
-
-Purpose: 
-Store and share memories
-
-Target: 
-Parents mostly 
+- **Working title:** Spomenik
+- **Problems than it solves: ** Scattering our chilren's photoes and video though devices and social medias. Forgetting great stories we'll want to share with them in the future.
+- **Purpose: ** Store and share memories
+- **Target: ** Parents mostly 
 
 ## Tech stask
 
@@ -54,6 +47,7 @@ Back-end:
 ## Structure
 
 Front-end:
+
 spomenik-nuxt/
   - assets/
     - css/
@@ -105,3 +99,6 @@ spomenik-nuxt/
 - [ ] feature/refresh-token
 - [ ] feature/forgotten-password
 - [ ] enhancement/constant-for-routes
+
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
