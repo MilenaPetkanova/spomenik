@@ -9,14 +9,14 @@
 					<Button
 						class="is-tertiary is-icon"
 						icon="xmark"
-						v-on:click.native="showModal(null)">
+						@click.native="showModal(null)">
 					</Button>
 					<h1>Добавяне на снимка / видео</h1>
 				</span>
 				<Button
 					class="is-tertiary is-icon"
 					icon="check"
-					v-on:click.native="createGalleryRecord(3)">
+					@click.native="createGalleryRecord(3)">
 				</Button>
 			</div>
 		</template>
@@ -26,14 +26,14 @@
 				<div class="flex flex-col pl-4">
 					<label for="year">Година</label>
 					<input 
-						class="w-full mb-4"
+						class="w-full py-1 mb-4"
 						type="text" 
 						name="year"
 						v-model="year"
 					/>
 					<label for="location">Локация</label>
 					<input 
-						class="w-full"
+						class="w-full py-1"
 						type="text" 
 						name="location"
 						v-model="location"
@@ -41,12 +41,11 @@
 				</div>
 			</div>
 			<div class="row px-4">
-				<!-- <label for="caption">История към снимка</label> -->
+				<label for="caption">Описание</label>
 				<textarea 
 					class="w-full"
 					type="text" 
 					name="caption"
-					placeholder="Напишете нещо..."
 					v-model="caption"
 				/>
 			</div>
@@ -78,8 +77,8 @@ export default {
 				caption: this.caption,
 			}
 			this.updateNewRecord(newRecord);
-			await this.$axios.$post('http://localhost:8000/gallery', newRecord)
-			const gallery = await this.$axios.$get('http://localhost:8000/gallery')
+			await this.$galleryService.create(newRecord)
+			const gallery = await this.$galleryService.getAll();
 			this.initGallery(gallery)
 			this.showModal(this.modalsEnum.GalleryCreateStep3)
 		}

@@ -48,7 +48,7 @@ export default {
 		...mapActions('gallery', ['initGallery']),
 		async fetchGallery() {
       try {
-        const gallery = await this.$axios.$get('http://localhost:8000/gallery')
+        const gallery = await this.$galleryService.getAll();
         this.initGallery(gallery)
 				this.isLoaded = true
       } catch (error) {

@@ -52,7 +52,7 @@ export default {
     ...mapActions('letters', ['initLetters', 'removeLetter']),
 		async fetchLetters() {
       try {
-        const letters = await this.$axios.$get('http://localhost:8000/letters')
+        const letters = await this.$lettersService.getAll()
         this.initLetters(letters)
       } catch (error) {
         console.error(error)
@@ -60,7 +60,7 @@ export default {
     },
     async deleteLetter(letterId) {
       try {
-        await this.$axios.$delete(`http://localhost:8000/letters/${letterId}`)
+        await this.$lettersService.delete(letterId)
         this.removeLetter(letterId);
       } catch (error) {
         console.error(error)

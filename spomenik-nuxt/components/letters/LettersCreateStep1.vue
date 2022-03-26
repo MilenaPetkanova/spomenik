@@ -9,14 +9,14 @@
 					<Button
 						class="is-tertiary is-icon"
 						icon="xmark"
-						v-on:click.native="showModal(null)">
+						@click.native="showModal(null)">
 					</Button>
 					<h1>Добавяне на писмо</h1>
 				</span>
 				<Button
 					class="is-tertiary is-icon"
 					icon="arrow-right-long"
-					v-on:click.native="createLetter">
+					@click.native="createLetter">
 				</Button>
 			</div>
 		</template>
@@ -38,7 +38,7 @@ export default {
         ["bold", "italic", "underline"],
         [{ list: "ordered" }, { list: "bullet" }],
         ["image", "code-block"]
-      ]
+      ],
     }
   },
   computed:{
@@ -46,10 +46,10 @@ export default {
 	},
 	methods: {
     ...mapActions('modals', ['showModal']),
-    ...mapActions('letters', ['setShownLetter']),
+    ...mapActions('letters', ['initLetters', 'setShownLetter']),
     async fetchLetters() {
       try {
-        const letters = await this.$axios.$get('http://localhost:8000/letters')
+        const letters = await this.$lettersService.getAll()
         this.initLetters(letters)
       } catch (error) {
         console.error(error)
@@ -60,9 +60,9 @@ export default {
 				const newLetter = {
 					content: this.content,
 				}
-        await this.$axios.$post('http://localhost:8000/letters', newLetter)
+				await this.$lettersService.create(newLetter)
         this.fetchLetters()
-        newLetter.created_on = this.$moment().unix()
+        newLetter.created_on = this.$moment()
         this.setShownLetter(newLetter)
         this.showModal(this.modalsEnum.LetterCreateStep2)
       } catch (error) {

@@ -44,7 +44,7 @@
 									classes="is-tertiary"
 									icon="arrow-right-from-bracket"
 									label="Изход"
-									v-on:click.native="logout">
+									@click.native="logout(); $router.push('auth/login')">
 								</Button>
 							</li>
 						</ul>
@@ -56,6 +56,7 @@
 </template>
 
 <script>
+import { mapGetters, mapActions } from "vuex"
 export default {
   data() {
     return {
@@ -64,6 +65,7 @@ export default {
     }
   },
 	methods: {
+		...mapActions('auth', ['logout']),
 		toggleMainMenu(state) {
 			this.isCreateMenuOpen = false
 			this.isMainMenuOpen = state
@@ -72,8 +74,6 @@ export default {
 			this.isMainMenuOpen = false
 			this.isCreateMenuOpen = state
 		},
-    logout(path) {
-    }
 	}
 }
 </script>

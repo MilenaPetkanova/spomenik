@@ -9,7 +9,7 @@
 					<Button
 						class="is-tertiary is-icon"
 						icon="xmark"
-						v-on:click.native="showModal(null)">
+						@click.native="showModal(null)">
 					</Button>
 					<h1>Добавяне на снимка / видео</h1>
 				</span>
@@ -17,7 +17,7 @@
 					v-if="newRecordSrc"
 					class="is-tertiary is-icon"
 					icon="arrow-right-long"
-					v-on:click.native="showModal(modalsEnum.GalleryCreateStep2)">
+					@click.native="showModal(modalsEnum.GalleryCreateStep2)">
 				</Button>
 			</div>
 		</template>
@@ -28,7 +28,7 @@
 						class="mt-12 mb-8" 
 						icon="photo-film" 
 						size="4x" />
-					<label class="btn is-primary">
+					<label class="btn is-primary text-base">
 						<input
 							class="hidden"
 							type="file"

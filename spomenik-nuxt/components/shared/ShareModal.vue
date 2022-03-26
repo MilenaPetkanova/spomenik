@@ -8,7 +8,7 @@
 				<Button
 					class="is-tertiary is-icon"
 					icon="arrow-left-long"
-					v-on:click.native="showModal(null)">
+					@click.native="showModal(null)">
 				</Button>
 				<h1>Споделяне</h1>
 			</div>
@@ -18,7 +18,7 @@
 				<Button
 					classes="is-primary"
 					label="Копирайте линка"
-					v-on:click.native="copyLinkToClipBoard">
+					@click.native="copyLinkToClipBoard">
 				</Button>
 			</div>
 		</template>

@@ -1,7 +1,7 @@
 <template>
-  <div class="page is-register">
+  <div class="page is-login">
     <div class="page__conatiner container py-8">
-      <RegisterForm />
+      <p class="text-red-400 text-center">Server error</p>
     </div>
   </div>
 </template>
@@ -10,11 +10,11 @@
 import Vue from 'vue'
 
 export default Vue.extend({
-  name: 'RegisterPage',
-  layout: 'authentication',
+  name: 'ErrorPage',
+  layout: 'auth',
   head() {
     return {
-      title: 'Register',
+      title: 'Error 500',
     };
   },
 })

@@ -1,7 +1,7 @@
 <template>
-  <div class="page is-login">
+  <div class="page is-register">
     <div class="page__conatiner container py-8">
-      <LoginForm />
+      <RegisterForm />
     </div>
   </div>
 </template>
@@ -10,11 +10,11 @@
 import Vue from 'vue'
 
 export default Vue.extend({
-  name: 'LoginPage',
-  layout: 'authentication',
+  name: 'RegisterPage',
+  layout: 'auth',
   head() {
     return {
-      title: 'Login',
+      title: 'Register',
     };
   },
 })

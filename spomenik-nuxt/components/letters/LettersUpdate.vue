@@ -2,13 +2,14 @@
 	<div class="letter-create">
 		<div class="letter-create__editor">
 			<client-only>
-				<vue-editor v-model="letterValue.content" />
+				<vue-editor v-model="letterValue.content" :editorToolbar="editorToolbar" />
 			</client-only>
 		</div>
-		<div class="letter-create__cta flex justify-end py-8">
+		<div class="letter-create__cta flex justify-end py-4">
 			<Button
+        class="is-primary"
         label="Запазете промените" 
-        v-on:click.native="update">
+        @click.native="update">
       </Button>
 		</div>
 	</div>
@@ -21,6 +22,11 @@ export default {
   data() {
     return {
       letterValue: {},
+      editorToolbar: [
+        ["bold", "italic", "underline"],
+        [{ list: "ordered" }, { list: "bullet" }],
+        ["image", "code-block"]
+      ],
     }
   },
   mounted() {
@@ -30,7 +36,7 @@ export default {
     ...mapActions('letters', ['updateLetter']),
     async update() {
       try {
-        await this.$axios.$put(`http://localhost:8000/letters/${this.letterValue.id}`, this.letterValue)
+        await this.$lettersService.update(this.letterValue.id, this.letterValue)
         this.updateLetter(this.letterValue);
         this.$emit('updated', true)
       } catch (error) {
