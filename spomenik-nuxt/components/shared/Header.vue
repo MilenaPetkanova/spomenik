@@ -16,16 +16,20 @@
 									class="dropdown__btn-create"
 									classes="is-tertiary"
 									icon="photo-film"
-									label="Добавете снимка / видео">
+									label="Добавете снимка / видео"
+									@click.native="showModal(modalsEnum.GalleryCreateStep1); toggleMainMenu(false)">
 								</Button>
+								<GalleryCreateStep1 v-if="shownModal === modalsEnum.GalleryCreateStep1" />
 							</li>
 							<li class="dropdown__element">
 								<Button 
 									class="dropdown__btn-create"
 									classes="is-tertiary"
 									icon="book"
-									label="Добавете писмо">
+									label="Добавете писмо"
+									@click.native="showModal(modalsEnum.LetterCreateStep1); toggleMainMenu(false)">
 								</Button>
+								<LettersCreateStep1 v-if="shownModal === modalsEnum.LetterCreateStep1" />
 							</li>
 						</ul>
 					</template>
@@ -64,8 +68,12 @@ export default {
 			isCreateMenuOpen: false,
     }
   },
+	computed:{
+		...mapGetters('modals', ['shownModal', 'modalsEnum']),
+	},
 	methods: {
 		...mapActions('auth', ['logout']),
+		...mapActions('modals', ['showModal']),
 		toggleMainMenu(state) {
 			this.isCreateMenuOpen = false
 			this.isMainMenuOpen = state
