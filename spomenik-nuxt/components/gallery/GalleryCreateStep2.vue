@@ -24,16 +24,16 @@
 			<div class="row flex px-4 py-8">
 				<img class="w-32 h-32 object-cover" :src="newRecordSrc" alt="image-preview" /> 
 				<div class="flex flex-col pl-4">
-					<label class="text-left" for="year">Година</label>
+					<label for="year">Година</label>
 					<input 
-						class="w-full mb-4"
+						class="w-full py-1 mb-4"
 						type="text" 
 						name="year"
 						v-model="year"
 					/>
-					<label class="text-left" for="location">Локация</label>
+					<label for="location">Локация</label>
 					<input 
-						class="w-full"
+						class="w-full py-1"
 						type="text" 
 						name="location"
 						v-model="location"
@@ -41,11 +41,11 @@
 				</div>
 			</div>
 			<div class="row px-4">
+				<label for="caption">Описание</label>
 				<textarea 
 					class="w-full"
 					type="text" 
 					name="caption"
-					placeholder="Напишете нещо..."
 					v-model="caption"
 				/>
 			</div>

@@ -28,3 +28,6 @@ textarea:-webkit-autofill:focus {
   -webkit-text-fill-color: #d1d5db;
   -webkit-box-shadow: 0 0 0px 1000px #1b1c1e inset;
 }
+label {
+  @apply w-full block text-left text-xs;
+}

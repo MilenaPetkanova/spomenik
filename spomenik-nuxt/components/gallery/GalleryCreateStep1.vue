@@ -28,7 +28,7 @@
 						class="mt-12 mb-8" 
 						icon="photo-film" 
 						size="4x" />
-					<label class="btn is-primary">
+					<label class="btn is-primary text-base">
 						<input
 							class="hidden"
 							type="file"
