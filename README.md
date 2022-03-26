@@ -3,7 +3,7 @@
 ## Project brief
 
 - Working title: Spomenik
-- Solving the following problems: Scattering our chilren's photoes and video though devices and social medias. Forgetting great stories we'll want to share with them in the future
+- Solving the following problems: Scattering our chilren's photos and video though devices and social medias. Forgetting great stories we want to share with them in the future.
 - Purpose: Store and share memories
 - Target: Parents mostly 
 
@@ -25,6 +25,11 @@ Third-party:
 
 ## Dependencies
 
+Back-end:
+- sequelize
+- bcrypt-nodejs
+- jsonwebtoken
+
 Front-end:
 - axios
 - cookie-universal-nuxt
@@ -34,14 +39,9 @@ Front-end:
 - fortawesome
 - toast
 
-Back-end:
-- sequelize
-- bcrypt-nodejs
-- jsonwebtoken
-
 ## Conventions
 
-- Use BEM for class names
+- Use BEM-ish for class names
 - Use tailwindcss for styles (as much as possible)
 
 ## Structure
@@ -92,13 +92,23 @@ spomenik-nuxt/
 
 - [ ] ui/design
 - [ ] ux/user-roles
+- [ ] ux/post-view-and-share
 - [ ] devops/deployment
 - [ ] devops/ci-cd
 - [ ] feature/images-set
 - [ ] feature/user-roles
+- [ ] feature/post-view-and-share
 - [ ] feature/refresh-token
 - [ ] feature/forgotten-password
+- [ ] feature/passport-login-wuth-gmail
+- [ ] enhancement/init-tests
+- [ ] enhancement/separate-controllers-in-be
+- [ ] enhancement/sequelize-everywhere-in-be
+- [ ] enhancement/typescript-in-fe
 - [ ] enhancement/constant-for-routes
+- [ ] enhancement/loaders
+- [ ] enhancement/alrts
+- [ ] enhancement/dropdown-close-directive
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
