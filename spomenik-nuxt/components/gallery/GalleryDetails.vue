@@ -16,43 +16,6 @@
 						<p class="text-sm ml-2">{{post.location}}</p>
 					</div>
 				</span>
-				<ButtonDropdown 
-					icon="ellipsis-vertical"
-					:isOpen="isMenuShown" 
-					classes="is-tertiary is-icon ml-3"
-					@toggle-is-open="toggleMenu"
-				>
-					<template v-slot:list>
-						<ul class="dropdown__elements flex flex-col">
-							<li class="dropdown__element">
-								<Button 
-									class="dropdown__btn-edit"
-									classes="is-tertiary"
-									label="Редактирайте">
-								</Button>
-							</li>
-							<li class="dropdown__element">
-								<Button 
-									class="dropdown__btn-delete"
-									classes="is-tertiary"
-									label="Изтрийте">
-								</Button>
-							</li>
-							<li class="dropdown__element">
-								<Button 
-									class="dropdown__btn-share"
-									classes="is-tertiary"
-									label="Споделете">
-								</Button>
-								<Button 
-									class="dropdown__btn-copy-link"
-									classes="is-tertiary"
-									label="Копирайте линка">
-								</Button>
-							</li>
-						</ul>
-					</template>
-				</ButtonDropdown>
 			</div>
 		</div>
 		<div class="gallery-post__body">
@@ -71,16 +34,6 @@ export default {
 			type: Object,
 		}
 	},
-	data() {
-		return {
-			isMenuShown: false,
-		}
-	},
-	methods: {
-		toggleMenu(state) {
-			this.isMenuShown = state
-		}
-	}
 }
 </script>
 

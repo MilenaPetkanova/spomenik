@@ -38,7 +38,7 @@ export default {
         ["bold", "italic", "underline"],
         [{ list: "ordered" }, { list: "bullet" }],
         ["image", "code-block"]
-      ]
+      ],
     }
   },
   computed:{
@@ -62,7 +62,7 @@ export default {
 				}
 				await this.$lettersService.create(newLetter)
         this.fetchLetters()
-        newLetter.created_on = this.$moment().unix()
+        newLetter.created_on = this.$moment()
         this.setShownLetter(newLetter)
         this.showModal(this.modalsEnum.LetterCreateStep2)
       } catch (error) {
