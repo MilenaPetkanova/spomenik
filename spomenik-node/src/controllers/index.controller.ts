@@ -7,14 +7,14 @@ import config from '../config/config'
 
 function generateJwtAccessToken(user: object) {
 	const ONE_WEEK = 60 * 60 * 24 * 7
-	return jwt.sign(user, config?.authentication?.jwtAccessSecret, {
+	return jwt.sign(user, config?.jwtAccessSecret, {
 		expiresIn: ONE_WEEK
 	})
 } 	
 
 function generateJwtRefreshToken(user: object) {
 	const ONE_WEEK = 60 * 60 * 24 * 7
-	return jwt.sign(user, config?.authentication?.jwtRefreshSecret, {
+	return jwt.sign(user, config?.jwtRefreshSecret, {
 		expiresIn: ONE_WEEK
 	})
 } 

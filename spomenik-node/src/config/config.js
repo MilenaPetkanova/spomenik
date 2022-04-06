@@ -8,7 +8,10 @@ const config = {
     "password": process.env.DB_DEV_PASSWORD,
     "database": process.env.DB_DEV_NAME,
     "host": process.env.DB_DEV_HOST,
-    "dialect": process.env.DB_DEV_DIALECT
+    "dialect": process.env.DB_DEV_DIALECT,
+    "port": 5432,
+    "jwtAccessSecret": process.env.JWT_ACCESS_TOKEN_SECRET || '',
+    "jwtRefreshSecret": process.env.JWT_REFRESH_TOKEN_SECRET || ''
   },
   "test": {
     "username": "root",
@@ -22,12 +25,11 @@ const config = {
     "password": process.env.DB_PROD_PASSWORD,
     "database": process.env.DB_PROD_NAME,
     "host": process.env.DB_PROD_HOST,
-    "dialect": process.env.DB_PROD_DIALECT
-  },
-  "authentication": {
+    "dialect": process.env.DB_PROD_DIALECT,
+    "port": 5432,
     "jwtAccessSecret": process.env.JWT_ACCESS_TOKEN_SECRET || '',
     "jwtRefreshSecret": process.env.JWT_REFRESH_TOKEN_SECRET || ''
-  }
+  },
 }
 
 module.exports = config[env];
