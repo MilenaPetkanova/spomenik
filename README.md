@@ -12,7 +12,7 @@
 Back-end:
 - nodejs 
 - expressjs
-- postgress sql
+- mysql
 - typescript
 
 Front-end: 
@@ -26,7 +26,7 @@ Third-party:
 ## Dependencies
 
 Back-end:
-- sequelize
+- mysql2
 - bcrypt-nodejs
 - jsonwebtoken
 

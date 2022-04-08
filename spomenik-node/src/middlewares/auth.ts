@@ -46,8 +46,7 @@ export const authenticateJWT = async (req: Request, res: Response, next: NextFun
 
   if (authHeader) {
       const token = authHeader.split(' ')[1];
-
-      jwt.verify(token, config?.authentication?.jwtAccessSecret, (err: any, user: any) => {
+      jwt.verify(token, config?.jwtAccessSecret, (err: any, user: any) => {
           if (err) {
               return res.sendStatus(403);
           }
