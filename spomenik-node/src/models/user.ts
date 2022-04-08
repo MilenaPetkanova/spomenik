@@ -1,4 +1,5 @@
-import { Model } from 'sequelize';
+import {Model} from 'sequelize';
+import {UserInterface} from '../interfaces/user'
 const Promise = require('bluebird')
 const bcrypt = Promise.promisifyAll(require('bcrypt-nodejs'))
 
@@ -15,15 +16,8 @@ function hashPassword (user: any, options: object) {
     })
 }
 
-interface UserAttributes {
-  name: string;
-  email: string;
-  password: string;
-  comparePassword(candidatePassword: string): Promise<boolean>;
-}
-
 module.exports = (sequelize: any, DataTypes: any) => {
-  class User extends Model<UserAttributes> implements UserAttributes {
+  class User extends Model<UserInterface> implements UserInterface {
     name!: string;
     email!: string;
     password!: string;
