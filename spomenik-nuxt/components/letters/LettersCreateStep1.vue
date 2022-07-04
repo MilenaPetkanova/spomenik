@@ -62,7 +62,7 @@ export default {
 				}
 				await this.$lettersService.create(newLetter)
         this.fetchLetters()
-        newLetter.created_on = this.$moment()
+        newLetter.createdAt = this.$moment()
         this.setShownLetter(newLetter)
         this.showModal(this.modalsEnum.LetterCreateStep2)
       } catch (error) {

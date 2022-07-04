@@ -8,7 +8,7 @@
         @mouseout="hoveredId = null"
       >
         <div class="letters-list__date mb-4">
-          <p>{{ $moment(letter.created_on).format('LL') }}</p>
+          <p>{{ $moment(letter.createdAt).format('LL') }}</p>
         </div>
         <div 
           class="letters-list__cta absolute top-0 right-0" 
