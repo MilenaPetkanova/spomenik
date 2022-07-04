@@ -16,7 +16,7 @@
 			</li>
 		</ul>
 		<ShareModal v-if="shownModal === modalsEnum.Share" postUrl="test" />
-		<client-only v-if="isLoaded">
+		<client-only v-if="isLoaded && gallery.length > 0">
 			<light-box     
 				class="gallery-list__lightbox"   
 				ref="lightbox"

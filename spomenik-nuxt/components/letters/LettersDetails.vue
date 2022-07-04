@@ -3,9 +3,9 @@
 		<div class="letter-post__heading">
 			<div class="container flex justify-between py-4">
 				<span class="flex">
-					<div v-if="shownLetter.created_on" class="flex items-center mr-6">
+					<div v-if="shownLetter.createdAt" class="flex items-center mr-6">
 						<font-awesome-icon icon="calendar" size="xs" />
-						<p class="text-sm ml-2">{{ $moment(shownLetter.created_on).format('LL') }}</p>
+						<p class="text-sm ml-2">{{ $moment(shownLetter.createdAt).format('LL') }}</p>
 					</div>
 				</span>
 			</div>

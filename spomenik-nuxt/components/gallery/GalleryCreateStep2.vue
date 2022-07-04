@@ -71,6 +71,10 @@ export default {
 		...mapActions('gallery', ['initGallery', 'updateNewRecord']),
 		...mapActions('modals', ['showModal']),
 		async createGalleryRecord() {
+			// TODO: add proper validation
+			if(!this.year) {
+				return
+			}
 			const newRecord = {
 				year: this.year,
 				location: this.location,
