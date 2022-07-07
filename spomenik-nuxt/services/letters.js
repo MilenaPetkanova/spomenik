@@ -1,18 +1,19 @@
-
 export default function ({ $axios }, inject) {
+
+  const lettersUrl = `${$axios.defaults.baseURL}/letters`;
   
   const lettersService = {
     async getAll() {
-      return await $axios.$get('http://localhost:8000/letters')
+      return await $axios.$get(lettersUrl)
     },
     async create(newRecord) {
-      await $axios.$post('http://localhost:8000/letters', newRecord)
+      await $axios.$post(lettersUrl, newRecord)
     },
     async update(letterId, letterValue) {
-      await $axios.$put(`http://localhost:8000/letters/${letterId}`, letterValue)
+      await $axios.$put(`${lettersUrl}/${letterId}`, letterValue)
     },
     async delete(letterId) {
-      await $axios.$delete(`http://localhost:8000/letters/${letterId}`)
+      await $axios.$delete(`${lettersUrl}/${letterId}`)
     },
   }
 

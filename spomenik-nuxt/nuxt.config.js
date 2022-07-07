@@ -70,10 +70,15 @@ export default {
   build: {
   },
 
+  axios: {
+    baseURL: process.env.NODE_ENV !== 'production' ?  'http://localhost:8000' : 'https://spomenik-api.milenapetkanova.com',
+  },
+
   moment: {
     defaultLocale: 'bg',
     locales: ['bg']
   },
+  
   fontawesome: {
     icons:{
       solid: true,
