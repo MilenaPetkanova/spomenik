@@ -2,6 +2,6 @@ import axios from 'axios'
 
 export default () => {
   return axios.create({
-    baseURL: `http://localhost:8000`
+    baseURL:  process.env.NODE_ENV !== 'production' ?  'http://localhost:8000' : 'https://spomenik-api.milenapetkanova.com'
   })
 }
