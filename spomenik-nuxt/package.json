@@ -7,6 +7,7 @@
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate",
+    "deploy": "npx pm2 start npm --name spomenik-nuxt -- start",
     "test": "jest"
   },
   "dependencies": {
