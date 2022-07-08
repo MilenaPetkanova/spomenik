@@ -108,5 +108,7 @@ export default {
   router: {
     middleware: ['auth']
   },
+
+  target: 'static',
   
 }
